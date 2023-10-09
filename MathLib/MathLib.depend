@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1695726397 source:d:\sahil\c programs\mathlib\main.cpp
+1695729636 source:d:\sahil\c programs\mathlib\main.cpp
 	<iostream>
 	"matrixV.cpp"
 	<vector>
@@ -10,10 +10,10 @@
 
 1663147503 d:\sahil\c programs\mathlib\matrix.h
 
-1695726218 d:\sahil\c programs\mathlib\matrixv.cpp
+1695749595 d:\sahil\c programs\mathlib\matrixv.cpp
 	<vector>
 	<iostream>
 	"matrixV.h"
 
-1695726508 d:\sahil\c programs\mathlib\matrixv.h
+1695730219 d:\sahil\c programs\mathlib\matrixv.h
 

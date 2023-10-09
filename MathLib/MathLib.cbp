@@ -45,6 +45,12 @@
 		<Unit filename="matrix.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="matrixV.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="matrixV.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

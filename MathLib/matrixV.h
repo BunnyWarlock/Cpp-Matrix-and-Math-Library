@@ -2,6 +2,7 @@
 #define matrixV_H_INCLUDED
 
 class MismatchedSize{};
+class InverseDoesNotExist{};
 
 template <class T>
 class matrixV{
@@ -17,6 +18,8 @@ class matrixV{
         matrixV(int r, int c);
         matrixV(int r, int c, T item);
         matrixV(int r, int c, std::vector<std::vector<T> > arr);
+        matrixV(int r, int c, T arr[]);
+        matrixV(int r, int c, std::vector<T> arr);
 
         //Basic Stuff
         void fillMatrix(T item);
@@ -24,6 +27,7 @@ class matrixV{
         T getElement(int r, int c);
         int getRow();
         int getColumn();
+        matrixV<T> getMatrix();
         void toString();
         void setElement(int r, int c, T item);
         void addScalar(T var);

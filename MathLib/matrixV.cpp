@@ -28,6 +28,22 @@ matrixV<T>::matrixV(int r, int c, std::vector<std::vector<T> > arr){
 }
 
 template <class T>
+matrixV<T>::matrixV(int r, int c, T arr[]){
+    init(r, c);
+    for (int i = 0; i < row; ++i)
+        for (int j = 0; j < column; ++j)
+            mArr[i][j] = arr[i*c + j];
+}
+
+template <class T>
+matrixV<T>::matrixV(int r, int c, std::vector<T> arr){
+    init(r, c);
+    for (int i = 0; i < row; ++i)
+        for (int j = 0; j < column; ++j)
+            mArr[i][j] = arr[i*c + j];
+}
+
+template <class T>
 void matrixV<T>::fillMatrix(T item){
     for(int i = 0; i < row; ++i)
         for(int j = 0; j < column; ++j)
@@ -55,6 +71,12 @@ int matrixV<T>::getRow(){
 template <class T>
 int matrixV<T>::getColumn(){
     return column;
+}
+
+template <class T>
+matrixV<T> matrixV<T>::getMatrix(){
+    matrixV<T> temp(row, column, mArr);
+    return temp;
 }
 
 template <class T>
@@ -230,6 +252,8 @@ matrixV<T> matrixV<T>::inverse(){
         throw MismatchedSize();
     matrixV<T> temp = adjoint();
     T determinant = det();
+    if (determinant == *(new T()))
+        throw InverseDoesNotExist();
     for (int i = 0; i < row; ++i)
         for (int j = 0; j < column; ++j)
             temp.mArr[i][j] /= determinant;
@@ -241,4 +265,22 @@ matrixV<int> matrixV<T>::identity(int r){
     matrixV<int> temp(r, r, 0);
     temp.fillDiagonal(1);
     return temp;
+}
+
+// Incorrect Implementation!!!
+template <class T>
+matrixV<T> matrixV<T>::psudoInverse(){
+    matrixV<T> t = transpose();
+    matrixV<T> m = getMatrix();
+    matrixV<T> x = (m*t).inverse();
+    if (row < column)
+        return t * x;
+    return x * t;
+}
+
+template <class T>
+matrixV<T> matrixV<T>::inv(){
+    if (row != column)
+        return psudoInverse();
+    return inverse();
 }

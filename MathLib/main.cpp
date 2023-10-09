@@ -163,5 +163,11 @@ int main()
     (t+t2).toString();
     (t*3).toString();
 
+    cout<<"Psuedo Inverse Time"<<endl;
+    double m[3*4] = {1, 6, 4, 5, 2, -1, 0, 2, 4, 3, -2, 3};
+    matrixV<double> pInv(3, 4, m);
+    pInv.toString();
+    pInv.psudoInverse().toString();
+
     return 0;
 }
